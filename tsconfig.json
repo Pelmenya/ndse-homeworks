@@ -24,8 +24,6 @@
         // Specify library files to be included in the compilation.
         "lib": [
             "esnext",
-//            "DOM",
-//            "DOM.Iterable"
         ],
         // Allow javascript files to be compiled.
         "allowJs": false,
@@ -38,7 +36,7 @@
         // Concatenate and emit output to single file.
         // "outFile": "./",
         // Redirect output structure to the directory.
-        "outDir": "./dist/types",
+        "outDir": "./build",
         // Specify the root directory of input files. Use this to control the output directory structure with --outDir.
         // "rootDir": "./",
 
@@ -135,8 +133,8 @@
         "src"
     ],
     "exclude": [
-        "dist",
+        "build",
         "node_modules",
-        "./*.js",
+        "./**/*.js",
     ]
 }

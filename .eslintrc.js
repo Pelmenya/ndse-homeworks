@@ -52,5 +52,5 @@ module.exports = {
         "no-underscore-dangle": ["error", { "allow": ["_id"] }],
         "no-param-reassign": ["error", { "props": false }],
     },
-    ignorePatterns: ['*.config.js', '*.js', '**/*/stories']
+    ignorePatterns: ['*.config.js', '*.js']
 };
