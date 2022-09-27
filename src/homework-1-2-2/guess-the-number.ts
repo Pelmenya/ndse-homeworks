@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable no-console */
 
 import * as readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';

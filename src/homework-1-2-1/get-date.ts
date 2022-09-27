@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable no-console */
 
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
