@@ -4,7 +4,8 @@
   "description": "Homeworks assignments for course the Backend Node.js developer",
   "main": "server.js",
   "bin": {
-    "get-date": "./build/homework-1-2-1/get-date.js"
+    "get-date": "./build/homework-1-2-1/get-date.js",
+    "guess-the-number":"./build/homework-1-2-2/guess-the-number.js"
   },
   "engines": {
     "node": ">=14.17.4",
@@ -19,7 +20,7 @@
     "validate": "npm-run-all compile test eslint",
     "prepare": "husky install",
     "homework-1-2-1": "npm run build-homeworks && npm link && get-date help",
-    "homework-1-2-2": "npm run build-homeworks && node ./build/homework-1-2-2/index.js"
+    "homework-1-2-2": "npm run build-homeworks && npm link && guess-the-number"
   },
   "repository": {
     "type": "git",
