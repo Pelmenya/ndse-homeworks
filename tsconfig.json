@@ -131,7 +131,7 @@
     },
     "include": [
         "src"
-    ],
+, "build/index.js"    ],
     "exclude": [
         "build",
         "node_modules",

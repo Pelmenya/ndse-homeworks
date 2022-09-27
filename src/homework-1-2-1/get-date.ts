@@ -68,18 +68,44 @@ const runCurrent = () => {
 
 const runAdd = () => {
     const date = new Date();
-    if (argv.date) date.setDate(date.getDate() + argv.date);
-    if (argv.year) date.setFullYear(date.getFullYear() + argv.year);
-    if (argv.month) date.setMonth(date.getMonth() + argv.month);
-    console.log('Дата и время в формате ISO: ', date);
+    let option = false;
+
+    if (argv.date) {
+        date.setDate(date.getDate() + argv.date);
+        option = true;
+    }
+    if (argv.year) {
+        date.setFullYear(date.getFullYear() + argv.year);
+        option = true;
+    }
+    if (argv.month) {
+        date.setMonth(date.getMonth() + argv.month);
+        option = true;
+    }
+    if (option) {
+        console.log('Дата и время в формате ISO: ', date);
+    } else console.log('Введите число дней, месяцев или лет вперед');
 };
 
 const runSub = () => {
     const date = new Date();
-    if (argv.date) date.setDate(date.getDate() - argv.date);
-    if (argv.year) date.setFullYear(date.getFullYear() - argv.year);
-    if (argv.month) date.setMonth(date.getMonth() - argv.month);
-    console.log('Дата и время в формате ISO: ', date);
+    let option = false;
+
+    if (argv.date) {
+        date.setDate(date.getDate() - argv.date);
+        option = true;
+    }
+    if (argv.year) {
+        date.setFullYear(date.getFullYear() - argv.year);
+        option = true;
+    }
+    if (argv.month) {
+        date.setMonth(date.getMonth() - argv.month);
+        option = true;
+    }
+    if (option) {
+        console.log('Дата и время в формате ISO: ', date);
+    } else console.log('Введите число дней, месяцев или лет назад');
 };
 
 if (argv._.length && argv._.length < 2) {
