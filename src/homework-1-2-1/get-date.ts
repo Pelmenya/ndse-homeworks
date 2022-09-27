@@ -33,45 +33,63 @@ const { argv } = yargs(hideBin(process.argv))
     .command('sub', 'Получить прошлую дату')
     .option('year', {
         alias: 'y',
-        type: 'string',
+        type: 'number',
         description: 'год',
     })
     .option('month', {
         alias: 'm',
-        type: 'string',
+        type: 'number',
         description: 'месяц',
     })
     .option('date', {
         alias: 'd',
-        type: 'string',
+        type: 'number',
         description: 'дата',
     });
 
+const runCurrent = () => {
+    let option = false;
+    if ('date' in argv) {
+        console.log('Сегодня: ', new Date().getDate(), 'число');
+        option = true;
+    }
+    if ('month' in argv) {
+        console.log('Месяц: ', getMonth(new Date().getMonth()));
+        option = true;
+    }
+    if ('year' in argv) {
+        console.log('Год: ', new Date().getFullYear());
+        option = true;
+    }
+    if (option === false) {
+        console.log('Дата и время в формате ISO: ', new Date());
+    }
+};
+
+const runAdd = () => {
+    const date = new Date();
+    if (argv.date) date.setDate(date.getDate() + argv.date);
+    if (argv.year) date.setFullYear(date.getFullYear() + argv.year);
+    if (argv.month) date.setMonth(date.getMonth() + argv.month);
+    console.log('Дата и время в формате ISO: ', date);
+};
+
+const runSub = () => {
+    const date = new Date();
+    if (argv.date) date.setDate(date.getDate() - argv.date);
+    if (argv.year) date.setFullYear(date.getFullYear() - argv.year);
+    if (argv.month) date.setMonth(date.getMonth() - argv.month);
+    console.log('Дата и время в формате ISO: ', date);
+};
+
 if (argv._.length && argv._.length < 2) {
     if (argv._.includes(COMMANDS.CURRENT)) {
-        let option = false;
-        if ('date' in argv) {
-            console.log('Сегодня: ', new Date().getDate(), 'число');
-            option = true;
-        }
-        if ('month' in argv) {
-            console.log('Месяц: ', getMonth(new Date().getMonth()));
-            option = true;
-        }
-        if ('year' in argv) {
-            console.log('Год: ', new Date().getFullYear());
-            option = true;
-        }
-        if (option === false) {
-            console.log('Дата и время в формате ISO: ', new Date());
-        }
+        runCurrent();
     }
-
     if (argv._.includes(COMMANDS.ADD)) {
-        console.log(new Date().toISOString());
+        runAdd();
     }
-
     if (argv._.includes(COMMANDS.SUB)) {
-        console.log(new Date().toISOString());
+        runSub();
     }
 } else console.log('Введите команду current | add | sub');
