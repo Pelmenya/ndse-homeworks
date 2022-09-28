@@ -25,7 +25,7 @@ module.exports = {
     },
     rules: {
         // Indent with 4 spaces
-        "indent": ["error", 4, {"SwitchCase": 1}],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
         'max-len': ['error', {
             code: 120,
             comments: 120,
@@ -33,7 +33,7 @@ module.exports = {
         '@typescript-eslint/indent': ["error", 4],
         "quotes": ["error", "single"],
         "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}],
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true, "optionalDependencies": false, "peerDependencies": false }],
         // Too restrictive, writing ugly code to defend against a very unlikely scenario: https://eslint.org/docs/rules/no-prototype-builtins
         "no-prototype-builtins": "off",
         // https://basarat.gitbooks.io/typescript/docs/tips/defaultIsBad.html
@@ -52,5 +52,6 @@ module.exports = {
         "no-underscore-dangle": ["error", { "allow": ["_id"] }],
         "no-param-reassign": ["error", { "props": false }],
     },
-    ignorePatterns: ['*.config.js', '*.js', '**/*/stories']
+    ignorePatterns: ['*.config.js', '*.js', '*.cjs'],
+    
 };

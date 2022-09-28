@@ -2,24 +2,32 @@
   "name": "ndse-homeworks",
   "version": "1.0.0",
   "description": "Homeworks assignments for course the Backend Node.js developer",
-  "main": "index.js",
+  "main": "server.js",
+  "bin": {
+    "get-date": "./build/homework-1-2-1/get-date.js",
+    "guess-the-number":"./build/homework-1-2-2/guess-the-number.js"
+  },
   "engines": {
     "node": ">=14.17.4",
     "npm": ">=6.14.14"
   },
   "scripts": {
     "test": "jest --passWithNoTests",
+    "unlink": "npm unlink -g",
     "eslint": "eslint . --fix",
+    "build-homeworks": "./node_modules/.bin/tsc",
     "compile": "tsc --noEmit",
     "validate": "npm-run-all compile test eslint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "homework-1-2-1": "npm run build-homeworks && npm link && get-date help",
+    "homework-1-2-2": "npm run build-homeworks && npm link && guess-the-number"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Pelmenya/ndse-homeworks.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dmitry Lyapin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Pelmenya/ndse-homeworks/issues"
@@ -27,19 +35,21 @@
   "homepage": "https://github.com/Pelmenya/ndse-homeworks#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.29.0",
-    "@typescript-eslint/parser": "4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
     "eslint": "7.32.0",
     "eslint-config-airbnb-typescript": "12.3.1",
     "eslint-formatter-pretty": "4.1.0",
     "eslint-plugin-eslint-comments": "3.2.0",
     "eslint-plugin-import": "2.23.4",
     "eslint-plugin-jest": "24.4.0",
-    "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-promise": "5.1.0",
-    "eslint-plugin-react": "^7.31.8",
     "husky": "7.0.1",
     "jest": "27.0.6",
     "npm-run-all": "4.1.5",
-    "typescript": "4.6.3"
-  }
+    "typescript": "4.8.3"
+  },
+  "dependencies": {
+    "yargs": "17.5.1"
+  },
+  "type": "module"
 }
