@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable no-console */
 
 import path from 'path';
 import fs from 'fs';
@@ -58,7 +60,7 @@ function main(logFilelName: string) {
     fs.access(dirLogs, (err) => {
         if (err && err.code === 'ENOENT') {
             fs.mkdir(dirLogs, () => { });
-            fs.writeFile(fileName, '', 'utf8', () => { });
+            fs.writeFile(fileName, '', 'utf8', () => {});
             playGame();
         } else {
             fs.readdir(dirLogs, (error, files) => {
@@ -67,7 +69,7 @@ function main(logFilelName: string) {
                 } else if (files && files.includes(path.parse(fileName).base)) {
                     playGame();
                 } else {
-                    fs.writeFile(fileName, '', 'utf8', () => { });
+                    fs.writeFile(fileName, '', 'utf8', () => {});
                     playGame();
                 }
             });

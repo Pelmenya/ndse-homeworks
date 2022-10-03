@@ -6,7 +6,8 @@
   "bin": {
     "get-date": "./build/homework-1-2-1/get-date.js",
     "guess-the-number":"./build/homework-1-2-2/guess-the-number.js",
-    "heads-or-tails":"./build/homework-1-4-1/heads-or-tails.js" 
+    "heads-or-tails":"./build/homework-1-4-1/heads-or-tails.js",
+    "heads-or-tails-statistics":"./build/homework-1-4-2/heads-or-tails-statistics.js" 
   },
   "engines": {
     "node": ">=14.17.4",
@@ -22,7 +23,8 @@
     "prepare": "husky install",
     "homework-1-2-1": "npm run build-homeworks && npm link && get-date help",
     "homework-1-2-2": "npm run build-homeworks && npm link && guess-the-number",
-    "homework-1-4-1": "npm run build-homeworks && npm link && heads-or-tails"
+    "homework-1-4-1": "npm run build-homeworks && npm link && heads-or-tails",
+    "homework-1-4-2": "npm run build-homeworks && npm link && heads-or-tails-statistics"
   },
   "repository": {
     "type": "git",
