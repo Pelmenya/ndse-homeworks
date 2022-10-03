@@ -131,7 +131,7 @@
     },
     "include": [
         "src"
-, "build/index.js"    ],
+, "build/index.js", "src/homework-1-4-1/.ts"    ],
     "exclude": [
         "build",
         "node_modules",
