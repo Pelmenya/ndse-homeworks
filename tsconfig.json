@@ -130,8 +130,8 @@
         },
     },
     "include": [
-        "src"
-, "build/index.js", "src/homework-1-4-1/.ts"    ],
+        "src",
+    ],
     "exclude": [
         "build",
         "node_modules",
