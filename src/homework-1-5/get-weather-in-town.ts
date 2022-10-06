@@ -24,10 +24,9 @@ export interface IWeather {
     }
 }
 
-const { accessKey } = process.env;
-const SERVER_URL = 'http://api.weatherstack.com';
+const { accessKey, SERVER_URL } = process.env;
 
-const main = (key: string) => {
+const main = (key: string, server: string) => {
     const controlKeys = ['q', 'Q'];
 
     const rl = readline.createInterface({ input, output });
@@ -42,7 +41,7 @@ const main = (key: string) => {
             input.unref();
         }
         if (i && !controlKeys.includes(i)) {
-            const url = `${SERVER_URL}/forecast?access_key=${key}&query=${i}`;
+            const url = `${server}/forecast?access_key=${key}&query=${i}`;
             http.get(url, (res) => {
                 const { statusCode } = res;
                 if (statusCode) {
@@ -74,6 +73,6 @@ const main = (key: string) => {
     rl.on('line', handlerLine);
 };
 
-if (accessKey) {
-    main(accessKey);
+if (accessKey && SERVER_URL) {
+    main(accessKey, SERVER_URL);
 } else console.log('Не найден ключ доступа в файле .env');
