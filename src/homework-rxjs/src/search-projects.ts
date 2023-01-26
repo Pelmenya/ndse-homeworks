@@ -1,6 +1,7 @@
 import { fromEvent } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 import { debounceTime, map, mergeMap } from 'rxjs/operators';
+import { getTemplate } from './get-template';
 
 export const searchProjects = () => {
     const inputProjects = document.querySelector<HTMLInputElement>('.input-projects');
@@ -16,15 +17,7 @@ export const searchProjects = () => {
             const projects$ = ajax.getJSON(`https://gitlab.com/api/v4/projects?search=${inputProjects.value}`)
                 .pipe(
                     mergeMap((resJSON: { web_url: string, name: string }[]) => resJSON),
-                    map((item: { web_url: string, name: string }) => `
-                    <div>
-                        <a href=${item.web_url} >
-                            <p>
-                                Репозиторий: <span>${item.name}</span>
-                            </p>
-                        </a>
-                    </div>
-                `.replace(/\s/g, '').replace(/ahref/g, 'a target="_blanc" href')),
+                    map((item: { web_url: string, name: string }) => getTemplate(item.web_url, item.name)),
                 );
             projects$.subscribe({
                 next: (value) => {

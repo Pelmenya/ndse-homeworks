@@ -2,6 +2,7 @@ import { fromEvent } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 
 import { ajax } from 'rxjs/ajax';
+import { getTemplate } from './get-template';
 
 export const getRepositories = () => {
     const inputRepo = document.querySelector<HTMLInputElement>('.input-repo');
@@ -18,17 +19,8 @@ export const getRepositories = () => {
         const repo$ = ajax.getJSON(`https://api.github.com/search/repositories?q=${inputRepo.value}`)
             .pipe(
                 mergeMap((resJSON: { items: { html_url: string, full_name: string }[] }) => resJSON.items),
-                map((item: { html_url: string, full_name: string }) => `
-                <div>
-                    <a href=${item.html_url} >
-                        <p>
-                            Репозиторий: <span>${item.full_name}</span>
-                        </p>
-                    </a>
-                </div>
-            `.replace(/\s/g, '').replace(/ahref/g, 'a target="_blanc" href')),
+                map((item: { html_url: string, full_name: string }) => getTemplate(item.html_url, item.full_name)),
             );
-
         repo$.subscribe({
             next: (value) => {
                 repoHTML += value;
