@@ -6,8 +6,25 @@
 </head>
 
 <body>
+<div style="display: flex; gap: 20px;">
+  <div>
+    <h2>Задание 1. </h2>
+    <p>Сделайте обращение к GitHub API, с использованием RxJS.</p>
+    <p>Url https://api.github.com/search/repositories?q=${текст запроса}</p>
 
-<input type="text">
+    <input class="input-repo" type="text">
+    <button class="button-repo">Найти репоитории</button>
+    <div class="res-repo"></div>
+  </div>
+  <div>
+    <h2>Задание 2. </h2>
+    <p>С использованием RxJS сделайте запросы к любому общедоступному API (например, аналогичное с GitHub API GitLab).</p>
+    <p>Url https://gitlab.com/api/v4/projects?search=${текст запроса}</p>
+
+    <input class="input-projects" type="text">
+    <div class="res-projects"></div>
+  </div>
+</div>
 
   <script>
     screenLog.init();
